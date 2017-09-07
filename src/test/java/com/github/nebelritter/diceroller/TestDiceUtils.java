@@ -5,6 +5,8 @@ package com.github.nebelritter.diceroller;
 
 import static org.junit.Assert.*;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,5 +67,17 @@ public class TestDiceUtils {
         rollResult.setDieResults(dieResults);
         int result = DiceUtils.addUpRollResult(rollResult);
         assertEquals(result, 21);
+    }
+
+    @Test
+    public void privateConstructorTest() throws Exception {
+        final Constructor<?>[] constructors = DiceUtils.class.getDeclaredConstructors();
+        // check that all constructors are 'private':
+        for (final Constructor<?> constructor : constructors) {
+            assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        }
+        // call the private constructor:
+        constructors[0].setAccessible(true);
+        constructors[0].newInstance((Object[]) null);
     }
 }
