@@ -8,7 +8,7 @@ jdk:
   
 addons:
   sonarcloud:
-    organization: "Nebelritter"
+    organization: "nebelritter-github"
     token:
       secure: c94f0fa3231a9d614c7709d599c4308c2b6acf91
 script:
