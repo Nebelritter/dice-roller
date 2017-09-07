@@ -1,15 +1,15 @@
 /**
  * 
  */
-package com.github.nebelritter.dice_roller.roller;
+package com.github.nebelritter.diceroller.roller;
 
 import java.util.List;
 import java.util.Random;
 
-import com.github.nebelritter.dice_roller.DiceRoller;
-import com.github.nebelritter.dice_roller.entity.DiceRollResult;
-import com.github.nebelritter.dice_roller.entity.OneDie;
-import com.github.nebelritter.dice_roller.entity.RolledDie;
+import com.github.nebelritter.diceroller.DiceRoller;
+import com.github.nebelritter.diceroller.entity.DiceRollResult;
+import com.github.nebelritter.diceroller.entity.OneDie;
+import com.github.nebelritter.diceroller.entity.RolledDie;
 
 /**
  * @author Alti

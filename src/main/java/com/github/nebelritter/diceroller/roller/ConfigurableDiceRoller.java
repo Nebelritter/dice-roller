@@ -1,14 +1,14 @@
 /**
  * 
  */
-package com.github.nebelritter.dice_roller.roller;
+package com.github.nebelritter.diceroller.roller;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.github.nebelritter.dice_roller.DiceRoller;
-import com.github.nebelritter.dice_roller.entity.DiceRollResult;
-import com.github.nebelritter.dice_roller.entity.OneDie;
+import com.github.nebelritter.diceroller.DiceRoller;
+import com.github.nebelritter.diceroller.entity.DiceRollResult;
+import com.github.nebelritter.diceroller.entity.OneDie;
 
 /**
  * @author Alti
@@ -20,7 +20,7 @@ public class ConfigurableDiceRoller implements DiceRoller {
 
     @Override
     public DiceRollResult rollDice(List<OneDie> dice2Roll) {
-        if (configuredResults.size() < 1) {
+        if (configuredResults.isEmpty()) {
             throw new IllegalStateException(
                     "Not enough configured results, need at least 1 but found " + configuredResults.size());
         }
@@ -30,17 +30,19 @@ public class ConfigurableDiceRoller implements DiceRoller {
         //check size
         int resultSize = result.getDieResults().size();
         int rollSize = dice2Roll.size();
-        if(resultSize != rollSize){
-        	throw new IllegalStateException("Number of dice configured("+resultSize+") does not equal number of dice to roll ("+rollSize+")");
+        if (resultSize != rollSize) {
+            throw new IllegalStateException("Number of dice configured(" + resultSize
+                    + ") does not equal number of dice to roll (" + rollSize + ")");
         }
         //check sides
-        if(result.getDieResults().size()>0){//can only check dice sides if any dice present
-        	int resultSides = result.getDieResults().get(0).getNumberOfSides();        
+        if (!result.getDieResults().isEmpty()) {//can only check dice sides if any dice present
+            int resultSides = result.getDieResults().get(0).getNumberOfSides();
             int rollSides = dice2Roll.get(0).getNumberOfSides();
-            if(resultSides != rollSides){
-            	throw new IllegalStateException("Number of sides of dice configured("+resultSides+") does not equal number of sides of dice to roll ("+rollSides+")");
+            if (resultSides != rollSides) {
+                throw new IllegalStateException("Number of sides of dice configured(" + resultSides
+                        + ") does not equal number of sides of dice to roll (" + rollSides + ")");
             }
-        }        
+        }
         configuredResults.remove(0);
         return result;
     }

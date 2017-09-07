@@ -1,30 +1,34 @@
 /**
  * 
  */
-package com.github.nebelritter.dice_roller;
+package com.github.nebelritter.diceroller;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.github.nebelritter.dice_roller.entity.DiceRollResult;
-import com.github.nebelritter.dice_roller.entity.OneDie;
-import com.github.nebelritter.dice_roller.entity.RolledDie;
+import com.github.nebelritter.diceroller.entity.DiceRollResult;
+import com.github.nebelritter.diceroller.entity.OneDie;
+import com.github.nebelritter.diceroller.entity.RolledDie;
 
 /**
  * @author Alti
  *
  */
 public class DiceUtils {
-	
+
+    private DiceUtils() {
+
+    }
+
     public static List<OneDie> createDice(int number, int numerOfSides) {
-    	if(number <= 0){
-    		return new ArrayList<>();
-    	}
-    	if(numerOfSides <=0){
-    		throw new IllegalArgumentException("Number of sides must be positive, no die may have 0 sides");
-    	}
+        if (number <= 0) {
+            return new ArrayList<>();
+        }
+        if (numerOfSides <= 0) {
+            throw new IllegalArgumentException("Number of sides must be positive, no die may have 0 sides");
+        }
         List<OneDie> result = new ArrayList<>();
         for (int i = 0; i < number; i++) {
             OneDie die = new OneDie();
@@ -33,7 +37,7 @@ public class DiceUtils {
         }
         return result;
     }
-   
+
     /**
      * to add up the dice given in the result
      * 

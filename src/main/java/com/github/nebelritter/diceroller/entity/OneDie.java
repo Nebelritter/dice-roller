@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.github.nebelritter.dice_roller.entity;
+package com.github.nebelritter.diceroller.entity;
 
 /**
  * @author Alti

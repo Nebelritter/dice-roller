@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.github.nebelritter.dice_roller.roller;
+package com.github.nebelritter.diceroller.roller;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -13,10 +13,11 @@ import java.util.stream.Collectors;
 
 import org.junit.Test;
 
-import com.github.nebelritter.dice_roller.DiceUtils;
-import com.github.nebelritter.dice_roller.entity.DiceRollResult;
-import com.github.nebelritter.dice_roller.entity.OneDie;
-import com.github.nebelritter.dice_roller.entity.RolledDie;
+import com.github.nebelritter.diceroller.DiceUtils;
+import com.github.nebelritter.diceroller.entity.DiceRollResult;
+import com.github.nebelritter.diceroller.entity.OneDie;
+import com.github.nebelritter.diceroller.entity.RolledDie;
+import com.github.nebelritter.diceroller.roller.SimpleRandomDiceRoller;
 
 /**
  * @author alters

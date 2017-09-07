@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.github.nebelritter.dice_roller;
+package com.github.nebelritter.diceroller;
 
 import static org.junit.Assert.*;
 
@@ -10,36 +10,32 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.github.nebelritter.dice_roller.DiceUtils;
-import com.github.nebelritter.dice_roller.entity.DiceRollResult;
-import com.github.nebelritter.dice_roller.entity.OneDie;
-import com.github.nebelritter.dice_roller.entity.RolledDie;
+import com.github.nebelritter.diceroller.DiceUtils;
+import com.github.nebelritter.diceroller.entity.DiceRollResult;
+import com.github.nebelritter.diceroller.entity.RolledDie;
 
 /**
  * @author Alti
  *
  */
-public class DiceUtilsTest {
+public class TestDiceUtils {
 
     @Test
-    public void test_AddUpRollResult() {
+    public void testAddUpRollResult() {
         DiceRollResult rollResult = new DiceRollResult();
         List<RolledDie> dieResults = new ArrayList<>();
         RolledDie six = new RolledDie();
         six.setNumberOfSides(6);
         six.setRollResult(6);
-        String stringRep = six.toString();
-        assertEquals("[6/6]",stringRep);
         dieResults.add(six);
         dieResults.add(six);
         rollResult.setDieResults(dieResults);
         int result = DiceUtils.addUpRollResult(rollResult);
         assertEquals(result, 12);
-        
     }
 
     @Test
-    public void test_AddUpRollResultAdvanced() {
+    public void testAddUpRollResultAdvanced() {
         DiceRollResult rollResult = new DiceRollResult();
         List<RolledDie> dieResults = new ArrayList<>();
         RolledDie six = new RolledDie();
@@ -69,41 +65,5 @@ public class DiceUtilsTest {
         rollResult.setDieResults(dieResults);
         int result = DiceUtils.addUpRollResult(rollResult);
         assertEquals(result, 21);
-    }
-    
-    @Test
-    public void test_createDice(){
-    	List<OneDie> dice = DiceUtils.createDice(4, 6);
-    	assertEquals(4, dice.size());
-    	assertEquals(6, dice.get(0).getNumberOfSides());
-    	String stringRep = dice.get(0).toString();
-    	assertEquals("[6]", stringRep);
-    }
-    
-    @Test
-    public void test_createDice_0Number(){
-    	List<OneDie> dice = DiceUtils.createDice(0, 6);
-    	assertEquals(0, dice.size());    	
-    }
-    
-    @Test
-    public void test_createDice_NegativeNumber(){
-    	List<OneDie> dice = DiceUtils.createDice(-4, 6);
-    	assertEquals(0, dice.size());    	
-    }
-    
-    @Test(expected=IllegalArgumentException.class)
-    public void test_createDice_NoSides(){
-    	DiceUtils.createDice(4, 0);    	
-    }
-    
-    @Test(expected=IllegalArgumentException.class)
-    public void test_createDice_NegativeSides(){
-    	DiceUtils.createDice(4, -6);    	
-    }
-    
-    @Test
-    public void test_Create(){
-    	new DiceUtils();    	
     }
 }
