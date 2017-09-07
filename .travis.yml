@@ -7,7 +7,7 @@ addons:
       secure: c94f0fa3231a9d614c7709d599c4308c2b6acf91
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarQube analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.login=$SONAR_TOKEN
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
 deploy:
   provider: releases
   api_key: $GIT_HUB_O_AUTH_TOKEN
