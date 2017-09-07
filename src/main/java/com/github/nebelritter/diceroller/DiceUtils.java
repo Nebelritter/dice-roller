@@ -18,7 +18,7 @@ import com.github.nebelritter.diceroller.entity.RolledDie;
  */
 public class DiceUtils {
 
-    private DiceUtils() {
+    protected DiceUtils() {
 
     }
 
