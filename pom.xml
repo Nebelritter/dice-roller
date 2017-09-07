@@ -5,8 +5,11 @@
 	<groupId>com.github.nebelritter.dice-roller</groupId>
 	<artifactId>dice-roller</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	
 	<name>Dice Roller</name>
-
+	<description>Library for rolling dice</description>
+	<url>https://github.com/Nebelritter/dice-roller</url>
+	
 	<properties>
 		<!-- Explicitly declaring the source encoding eliminates the following 
 			message: -->
@@ -90,4 +93,26 @@
 			</build>
 		</profile>
 	</profiles>
+	
+	<licenses>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+	
+	<developers>
+		<developer>
+			<name>Stefan Alter</name>
+			<email>alti@gmx.de</email>
+			<organization>Nebelritter</organization>
+			<organizationUrl>https://github.com/Nebelritter</organizationUrl>
+		</developer>
+	</developers>
+	
+	<scm>
+		<connection>scm:git:git://github.com/Nebelritter/dice-roller.git</connection>
+		<developerConnection>scm:git:ssh://github.com/Nebelritter/dice-roller.git</developerConnection>
+		<url>http://github.com/Nebelritter/dice-roller/tree/master</url>
+	</scm>
 </project>

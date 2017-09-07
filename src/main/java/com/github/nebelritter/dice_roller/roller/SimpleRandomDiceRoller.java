@@ -3,7 +3,6 @@
  */
 package com.github.nebelritter.dice_roller.roller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -21,20 +20,15 @@ public class SimpleRandomDiceRoller implements DiceRoller {
     @Override
     public DiceRollResult rollDice(List<OneDie> dice2Roll) {
         DiceRollResult result = new DiceRollResult();
+        List<RolledDie> dieResults = result.getDieResults();
         for (OneDie oneDie : dice2Roll) {
             int numberOfSides = oneDie.getNumberOfSides();
             RolledDie rolledDie = new RolledDie();
             rolledDie.setNumberOfSides(numberOfSides);
-            rolledDie.setRollResult(rollDie(numberOfSides));
-            List<RolledDie> dieResults = result.getDieResults();
-            if (dieResults == null) {
-                dieResults = new ArrayList<>();
-                dieResults.add(rolledDie);
-                result.setDieResults(dieResults);
-            } else {
-                dieResults.add(rolledDie);
-            }
+            rolledDie.setRollResult(rollDie(numberOfSides));            
+            dieResults.add(rolledDie);            
         }
+        result.setDieResults(dieResults);
         return result;
     }
 
