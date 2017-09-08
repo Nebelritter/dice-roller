@@ -3,7 +3,9 @@ language: java
 jdk:
   - oraclejdk8
 
-before_install: chmod +x travis/deploy.sh
+before_install: 
+ - chmod +x travis/deploy.sh
+ - chmod +x travis/gpg.sh
   
 addons:
   sonarcloud:
