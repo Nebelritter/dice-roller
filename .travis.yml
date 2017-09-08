@@ -24,16 +24,33 @@ cache:
     - '$HOME/.m2/repository'
     - '$HOME/.sonar/cache'  
   
+<<<<<<< HEAD
 deploy:    
     -
+=======
+deploy:
+    
+>>>>>>> e8ff4443bdf1be093f87843f5736f8a60a096e1f
     provider: script
     script: .travis/deploy.sh
     skip_cleanup: true
     on:
+<<<<<<< HEAD
       repo: idealo/logback-redis
+=======
+      repo: Nebelritter/dice-roller
+      branch: master
+      jdk: oraclejdk8
+    
+    provider: script
+    script: .travis/deploy.sh
+    skip_cleanup: true
+    on:
+      repo: Nebelritter/dice-roller
+>>>>>>> e8ff4443bdf1be093f87843f5736f8a60a096e1f
       tags: true
       jdk: oraclejdk8
-    -  
+      
     provider: releases
     api_key: $GIT_HUB_O_AUTH_TOKEN
     file: dice-roller.zip
