@@ -23,8 +23,8 @@
 		<version.deploy.plugin>2.8.1</version.deploy.plugin>
 		<version.javadoc.plugin>2.9.1</version.javadoc.plugin>
 		<version.source.plugin>2.2.1</version.source.plugin>
-		<version.nexus-staging.plugin>1.6.3</version.nexus-staging.plugin>
-		<version.gpg.plugin>1.5</version.gpg.plugin>
+		<version.nexus-staging.plugin>1.6.7</version.nexus-staging.plugin>
+		<version.gpg.plugin>1.6</version.gpg.plugin>
 		
 		<!-- other dependency versions -->
 		<version.junit>4.12</version.junit>

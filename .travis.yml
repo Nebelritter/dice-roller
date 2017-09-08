@@ -24,21 +24,13 @@ cache:
     - '$HOME/.m2/repository'
     - '$HOME/.sonar/cache'  
   
-deploy:
+deploy:    
     -
     provider: script
     script: .travis/deploy.sh
     skip_cleanup: true
     on:
-      repo: Nebelritter/dice-roller
-      branch: master
-      jdk: oraclejdk8
-    -
-    provider: script
-    script: .travis/deploy.sh
-    skip_cleanup: true
-    on:
-      repo: Nebelritter/dice-roller
+      repo: idealo/logback-redis
       tags: true
       jdk: oraclejdk8
     -  
