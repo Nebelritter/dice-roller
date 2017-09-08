@@ -2,7 +2,9 @@ language: java
 
 jdk:
   - oraclejdk8
- 
+
+before_install: - chmod +x travis/deploy.sh
+  
 addons:
   sonarcloud:
     organization: "nebelritter-github"
