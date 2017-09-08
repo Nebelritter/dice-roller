@@ -33,7 +33,7 @@ deploy:
       repo: idealo/logback-redis
       tags: true
       jdk: oraclejdk8
-      
+    -
     provider: releases
     api_key: $GIT_HUB_O_AUTH_TOKEN
     file: dice-roller.zip
