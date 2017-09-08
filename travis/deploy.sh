@@ -13,7 +13,7 @@ then
         rm -rf ~/.gnupg
     fi
 
-    source .travis/gpg.sh
+    source travis/gpg.sh
 
     mvn clean deploy --settings travis/settings.xml -DskipTests=true --batch-mode --update-snapshots -Prelease
 
