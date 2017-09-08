@@ -4,7 +4,7 @@
 	
 	<groupId>com.github.nebelritter.dice-roller</groupId>
 	<artifactId>dice-roller</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.3-SNAPSHOT</version>
 	
 	<name>Dice Roller</name>
 	<description>Library for rolling dice</description>
