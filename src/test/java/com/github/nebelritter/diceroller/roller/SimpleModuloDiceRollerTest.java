@@ -20,7 +20,7 @@ import com.github.nebelritter.diceroller.entity.RolledDie;
 import com.github.nebelritter.diceroller.roller.SimpleModuloDiceRoller;
 
 /**
- * @author alters
+ * @author Nebelritter
  *
  */
 public class SimpleModuloDiceRollerTest {

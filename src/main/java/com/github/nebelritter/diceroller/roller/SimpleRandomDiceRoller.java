@@ -4,12 +4,12 @@
 package com.github.nebelritter.diceroller.roller;
 
 import java.util.List;
-import java.util.Random;
 
 import com.github.nebelritter.diceroller.DiceRoller;
 import com.github.nebelritter.diceroller.entity.DiceRollResult;
 import com.github.nebelritter.diceroller.entity.OneDie;
 import com.github.nebelritter.diceroller.entity.RolledDie;
+import com.github.nebelritter.diceroller.random.RandomValueProvider;
 
 /**
  * @author Alti
@@ -17,6 +17,8 @@ import com.github.nebelritter.diceroller.entity.RolledDie;
  */
 public class SimpleRandomDiceRoller implements DiceRoller {
 
+	protected RandomValueProvider randomProvider;
+	
     @Override
     public DiceRollResult rollDice(List<OneDie> dice2Roll) {
         DiceRollResult result = new DiceRollResult();
@@ -32,9 +34,16 @@ public class SimpleRandomDiceRoller implements DiceRoller {
         return result;
     }
 
-    protected int rollDie(int numberOfSides) {
-        Random rnd = new Random();
-        int value0Based = rnd.nextInt(numberOfSides);
+    protected int rollDie(int numberOfSides) {        
+        int value0Based = randomProvider.nextInt(numberOfSides);
         return (value0Based + 1);
     }
+
+	public RandomValueProvider getRandomProvider() {
+		return randomProvider;
+	}
+
+	public void setRandomProvider(RandomValueProvider randomProvider) {
+		this.randomProvider = randomProvider;
+	}
 }

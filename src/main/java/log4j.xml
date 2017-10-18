@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration debug="true"
+	xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+	<appender name="stdErr" class="org.apache.log4j.ConsoleAppender">
+        <param name="threshold" value="warn" />
+        <param name="target" value="System.err"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%-5p %d [%t][%F:%L] : %m%n" />
+        </layout>
+    </appender>
+    <appender name="stdOut" class="org.apache.log4j.ConsoleAppender">
+        <param name="threshold" value="debug" />
+        <param name="target" value="System.out"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%-5p %d [%t][%F:%L] : %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="debug" />
+            <param name="LevelMax" value="info" />
+        </filter>
+    </appender>
+
+	<appender name="file" class="org.apache.log4j.RollingFileAppender">
+	   <param name="append" value="true" />
+	   <param name="maxFileSize" value="100KB" />
+	   <param name="maxBackupIndex" value="5" />
+	   <param name="file" value="/logs/core.log" />
+	   <layout class="org.apache.log4j.PatternLayout">
+		<param name="ConversionPattern" 
+			value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n" />
+	   </layout>
+	</appender>
+
+	<root>
+		<level value="DEBUG" />
+		<appender-ref ref="stdErr" />
+		<appender-ref ref="stdOut" />
+		<appender-ref ref="file" />
+	</root>
+
+</log4j:configuration>

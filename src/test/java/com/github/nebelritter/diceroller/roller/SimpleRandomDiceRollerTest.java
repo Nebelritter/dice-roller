@@ -11,21 +11,37 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.github.nebelritter.diceroller.DiceUtils;
 import com.github.nebelritter.diceroller.entity.DiceRollResult;
 import com.github.nebelritter.diceroller.entity.OneDie;
 import com.github.nebelritter.diceroller.entity.RolledDie;
-import com.github.nebelritter.diceroller.roller.SimpleRandomDiceRoller;
+import com.github.nebelritter.diceroller.random.RandomValueProvider;
+import com.github.nebelritter.diceroller.random.SimpleRandomValueProvider;
 
 /**
- * @author alters
+ * @author Nebelritter
  *
  */
 public class SimpleRandomDiceRollerTest {
 
-	private SimpleRandomDiceRoller roller = new SimpleRandomDiceRoller();
+	private static SimpleRandomDiceRoller roller = new SimpleRandomDiceRoller();
+	
+	@BeforeClass
+	public static void setUp() {	
+		SimpleRandomValueProvider rndProvider = new SimpleRandomValueProvider();
+		roller.setRandomProvider(rndProvider);
+		RandomValueProvider obtained = roller.getRandomProvider();
+		assertEquals(rndProvider, obtained);
+	}
+
+	@Before
+	public void beforeEach() {
+		
+	}
 	
 	@Test
 	public void testRollSomeDice(){

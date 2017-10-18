@@ -1,15 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<groupId>com.github.nebelritter.dice-roller</groupId>
 	<artifactId>dice-roller</artifactId>
-	<version>0.0.3-SNAPSHOT</version>
-	
+	<version>0.0.4-SNAPSHOT</version>
+
 	<name>Dice Roller</name>
 	<description>Library for rolling dice</description>
 	<url>https://github.com/Nebelritter/dice-roller</url>
-	
+
 	<properties>
 		<!-- Explicitly declaring the source encoding eliminates the following 
 			message: -->
@@ -25,10 +25,11 @@
 		<version.source.plugin>2.2.1</version.source.plugin>
 		<version.nexus-staging.plugin>1.6.7</version.nexus-staging.plugin>
 		<version.gpg.plugin>1.6</version.gpg.plugin>
-		
+
 		<!-- other dependency versions -->
 		<version.junit>4.12</version.junit>
-		
+		<version.json_rpc>1.15</version.json_rpc>
+
 		<!-- maven-compiler-plugin -->
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -36,15 +37,32 @@
 
 	<dependencies>
 		<dependency>
-    			<groupId>junit</groupId>
-     			<artifactId>junit</artifactId>
-     			<version>${version.junit}</version>
-     			<scope>test</scope>
-   		</dependency>
-	</dependencies>		
-	
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${version.junit}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- <dependency> <groupId>com.thetransactioncompany</groupId> <artifactId>jsonrpc2-client</artifactId> 
+			<version>${version.json_rpc}</version> </dependency> 
+			<dependency>
+			<groupId>oracle</groupId>
+			<artifactId>ojdbc</artifactId>
+			<version>1.4</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/org.random.json_rpc.jar</systemPath>
+		</dependency>
+			-->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
+		
+	</dependencies>
+
 	<profiles>
-		<profile> 
+		<profile>
 			<id>release</id>
 			<build>
 				<plugins>
@@ -61,7 +79,7 @@
 							</execution>
 						</executions>
 					</plugin>
-			
+
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-javadoc-plugin</artifactId>
@@ -75,7 +93,7 @@
 							</execution>
 						</executions>
 					</plugin>
-					<!-- sing as necessary-->
+					<!-- sing as necessary -->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-gpg-plugin</artifactId>
@@ -105,7 +123,7 @@
 			</build>
 		</profile>
 	</profiles>
-	
+
 	<distributionManagement>
 		<snapshotRepository>
 			<id>ossrh</id>
@@ -117,14 +135,14 @@
 		</repository>
 	</distributionManagement>
 
-	
+
 	<licenses>
 		<license>
 			<name>The Apache License, Version 2.0</name>
 			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
 		</license>
 	</licenses>
-	
+
 	<developers>
 		<developer>
 			<name>Stefan Alter</name>
@@ -133,7 +151,7 @@
 			<organizationUrl>https://github.com/Nebelritter</organizationUrl>
 		</developer>
 	</developers>
-	
+
 	<scm>
 		<connection>scm:git:git://github.com/Nebelritter/dice-roller.git</connection>
 		<developerConnection>scm:git:ssh://github.com/Nebelritter/dice-roller.git</developerConnection>

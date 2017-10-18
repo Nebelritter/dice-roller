@@ -5,6 +5,8 @@ package com.github.nebelritter.diceroller;
 
 import static org.junit.Assert.*;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -100,5 +102,17 @@ public class DiceUtilsTest {
     @Test(expected = IllegalArgumentException.class)
     public void test_createDice_NegativeSides() {
         DiceUtils.createDice(4, -6);
+    }
+    
+    @Test
+    public void privateConstructorTest() throws Exception {
+        final Constructor<?>[] constructors = DiceUtils.class.getDeclaredConstructors();
+        // check that all constructors are 'private':
+        for (final Constructor<?> constructor : constructors) {
+            assertTrue(Modifier.isPrivate(constructor.getModifiers()));
+        }
+        // call the private constructor:
+        constructors[0].setAccessible(true);
+        constructors[0].newInstance((Object[]) null);
     }
 }

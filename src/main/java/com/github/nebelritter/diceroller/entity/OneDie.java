@@ -3,12 +3,17 @@
  */
 package com.github.nebelritter.diceroller.entity;
 
+import java.io.Serializable;
+
 /**
  * @author Alti
  *
  */
-public class OneDie {
-    int numberOfSides;
+public class OneDie implements Serializable{
+    /** */	
+	private static final long serialVersionUID = 1L;
+	
+	int numberOfSides;
 
     /*
      * (non-Javadoc)

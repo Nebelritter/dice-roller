@@ -8,7 +8,10 @@ package com.github.nebelritter.diceroller.entity;
  *
  */
 public class RolledDie extends OneDie {
-    int rollResult;
+    /**	 */
+	private static final long serialVersionUID = 1L;
+	
+	int rollResult;
 
     public int getRollResult() {
         return rollResult;
